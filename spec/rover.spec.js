@@ -63,11 +63,12 @@ describe("Rover class", function() {
   });
   //TEST 13
   it('responds with the position for the move command', function() {
-    const lastRover= new Rover(92)
-    const lastCommand = [new Command ('MOVE', 2784947)];
+    const lastRover= new Rover(92);
+    const lastPosition = 2784947;
+    const lastCommand = [new Command ('MOVE', lastPosition)];
     const lastMessage = new Message('Moving...', lastCommand);
     const lastResponse = lastRover.receiveMessage(lastMessage);
     expect(lastResponse.results[0].completed).toBe(true);
-    expect(lastRover.position).toBe(2784947)
+    expect(lastRover.position).toBe(lastPosition);
   });
 });
